@@ -4,6 +4,7 @@ import "./Login.css";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "./LoginSlice";
+import { useState } from "react";
 
 const validate = (values) => {
   const errors = {};
@@ -40,62 +41,72 @@ const Login = () => {
   // we just use an empty string. If we don’t do this, React will yell
   // at us.
 
-  const state = useSelector((state) => state.isLoggedIn);
+  const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
+  const name = useSelector((state) => state.login.userName);
 
+  const handleLoginToggle = () => {
+    dispatch(login(formik.values.Username)); // Pass the username as payload
+  };
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       firstName: "",
       lastName: "",
       email: "",
+      Username: "",
     },
     validate,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
       alert("Login success!");
+      handleLoginToggle();
     },
   });
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="Username">Username</label>
-      <input
-        id="Username"
-        name="Username"
-        type="text"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.Username}
-      />
-      {formik.errors.Username ? <div>{formik.errors.Username}</div> : null}
-      <label htmlFor="email">Email Address</label>
-      <input
-        id="email"
-        name="email"
-        type="email"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.email}
-      />
-      {formik.errors.email ? <div>{formik.errors.email}</div> : null}
-      <label htmlFor="password">Password</label>
-      <input
-        id="password"
-        name="password"
-        type="password"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.password}
-      />
-      {formik.touched.password && formik.errors.password ? (
-        <div>{formik.errors.password}</div>
-      ) : null}
-      <button type="submit" onClick={() => dispatch(login())}>
-        Login
-      </button>
-      <Link to="/SignUp">
-        <button>Sign up</button>
-      </Link>
-    </form>
+    <div>
+      {isLoggedIn ? (
+        <h2>Welcome, {name}</h2>
+      ) : (
+        <form onSubmit={formik.handleSubmit}>
+          <label htmlFor="Username">Username</label>
+          <input
+            id="Username"
+            name="Username"
+            type="text"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.Username}
+          />
+          {formik.errors.Username ? <div>{formik.errors.Username}</div> : null}
+          <label htmlFor="email">Email Address</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.email}
+          />
+          {formik.errors.email ? <div>{formik.errors.email}</div> : null}
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.password}
+          />
+          {formik.touched.password && formik.errors.password ? (
+            <div>{formik.errors.password}</div>
+          ) : null}
+          <button type="submit">Login</button>
+          <Link to="/SignUp">
+            <button>Sign up</button>
+          </Link>
+        </form>
+      )}
+    </div>
   );
 };
 

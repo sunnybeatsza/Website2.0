@@ -3,11 +3,16 @@ import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { login } from "../Login/LoginSlice";
+import { logout } from "../Login/LoginSlice";
 
 export const Navbar = () => {
   // Navbar.js
   const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
+  const name = useSelector((state) => state.login.userName);
+
+  const handleLogOut = () => {
+    dispatch(logout());
+  };
 
   const dispatch = useDispatch();
   return (
@@ -30,13 +35,12 @@ export const Navbar = () => {
             </Link>
           </ul>
           <Link to="/LoginSignup">
-            <button>Logout</button>
+            <button onClick={handleLogOut}>Logout</button>
           </Link>
           <Link to="/Cart">
-            <button>
-              Cart <span>{<itemsCount />}</span>
-            </button>
+            <button>Cart</button>
           </Link>
+          <h3>{name}</h3>
         </div>
       ) : (
         <div className="nav-right">
@@ -56,9 +60,7 @@ export const Navbar = () => {
             <button>Login</button>
           </Link>
           <Link to="/Cart">
-            <button>
-              Cart <span>{<itemsCount />}</span>
-            </button>
+            <button>Cart</button>
           </Link>
         </div>
       )}
