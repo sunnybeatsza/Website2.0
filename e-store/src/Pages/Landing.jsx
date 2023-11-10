@@ -1,11 +1,11 @@
 import React from "react";
 import { Navbar } from "../Components/Navbar/Navbar";
 
-export const Home = () => {
+export const Landing = () => {
   return (
     <div>
       <Navbar />
-      Home
+      Landing
     </div>
   );
 };

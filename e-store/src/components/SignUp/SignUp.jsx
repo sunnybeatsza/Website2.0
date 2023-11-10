@@ -2,6 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import "./SignUp.css";
 import { Link } from "react-router-dom";
+import { Navbar } from "../Navbar/Navbar";
 
 const validate = (values) => {
   const errors = {};
@@ -57,63 +58,67 @@ const SignUp = () => {
     },
   });
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="firstName">First Name</label>
-      <input
-        id="firstName"
-        name="firstName"
-        type="text"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.firstName}
-      />
-      {formik.touched.firstName && formik.errors.firstName ? (
-        <div>{formik.errors.firstName}</div>
-      ) : null}
+    <div>
+      <Navbar />
+      <h1>Sign Up</h1>
+      <form onSubmit={formik.handleSubmit}>
+        <label htmlFor="firstName">First Name</label>
+        <input
+          id="firstName"
+          name="firstName"
+          type="text"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.firstName}
+        />
+        {formik.touched.firstName && formik.errors.firstName ? (
+          <div>{formik.errors.firstName}</div>
+        ) : null}
 
-      <label htmlFor="lastName">Last Name</label>
-      <input
-        id="lastName"
-        name="lastName"
-        type="text"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.lastName}
-      />
-      {formik.touched.lastName && formik.errors.lastName ? (
-        <div>{formik.errors.lastName}</div>
-      ) : null}
+        <label htmlFor="lastName">Last Name</label>
+        <input
+          id="lastName"
+          name="lastName"
+          type="text"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.lastName}
+        />
+        {formik.touched.lastName && formik.errors.lastName ? (
+          <div>{formik.errors.lastName}</div>
+        ) : null}
 
-      <label htmlFor="email">Email Address</label>
-      <input
-        id="email"
-        name="email"
-        type="email"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.email}
-      />
-      {formik.errors.email ? <div>{formik.errors.email}</div> : null}
+        <label htmlFor="email">Email Address</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.email}
+        />
+        {formik.errors.email ? <div>{formik.errors.email}</div> : null}
 
-      <label htmlFor="password">Password</label>
-      <input
-        id="password"
-        name="password"
-        type="password"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.password}
-      />
+        <label htmlFor="password">Password</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.password}
+        />
 
-      {formik.touched.password && formik.errors.password ? (
-        <div>{formik.errors.password}</div>
-      ) : null}
+        {formik.touched.password && formik.errors.password ? (
+          <div>{formik.errors.password}</div>
+        ) : null}
 
-      <button type="submit">Login</button>
-      <Link to="/SignUp">
-        <button>Sign up</button>
-      </Link>
-    </form>
+        <button type="submit">Login</button>
+        <Link to="/SignUp">
+          <button>Sign up</button>
+        </Link>
+      </form>
+    </div>
   );
 };
 
