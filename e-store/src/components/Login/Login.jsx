@@ -2,6 +2,8 @@ import React from "react";
 import { useFormik } from "formik";
 import "./Login.css";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { login } from "./LoginSlice";
 
 const validate = (values) => {
   const errors = {};
@@ -37,6 +39,10 @@ const Login = () => {
   // could come from props, but since we don’t want to prefill this form,
   // we just use an empty string. If we don’t do this, React will yell
   // at us.
+
+  const state = useSelector((state) => state.isLoggedIn);
+
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -61,7 +67,6 @@ const Login = () => {
         value={formik.values.Username}
       />
       {formik.errors.Username ? <div>{formik.errors.Username}</div> : null}
-
       <label htmlFor="email">Email Address</label>
       <input
         id="email"
@@ -72,7 +77,6 @@ const Login = () => {
         value={formik.values.email}
       />
       {formik.errors.email ? <div>{formik.errors.email}</div> : null}
-
       <label htmlFor="password">Password</label>
       <input
         id="password"
@@ -82,12 +86,12 @@ const Login = () => {
         onBlur={formik.handleBlur}
         value={formik.values.password}
       />
-
       {formik.touched.password && formik.errors.password ? (
         <div>{formik.errors.password}</div>
       ) : null}
-
-      <button type="submit">Login</button>
+      <button type="submit" onClick={() => dispatch(login())}>
+        Login
+      </button>
       <Link to="/SignUp">
         <button>Sign up</button>
       </Link>
