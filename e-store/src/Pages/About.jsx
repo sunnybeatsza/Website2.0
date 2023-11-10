@@ -1,5 +1,11 @@
 import React from "react";
+import { Navbar } from "../Components/Navbar/Navbar";
 
 export const About = () => {
-  return <div>About</div>;
+  return (
+    <div>
+      <Navbar />
+      About
+    </div>
+  );
 };
