@@ -1,0 +1,30 @@
+.background-photo {
+  background: url(../Landing/piotr-szulawski-XjR-Y8PKeww-unsplash.jpg) no-repeat
+    center center fixed;
+  background-size: cover;
+  width: auto;
+  height: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: black;
+  border-radius: 10px;
+}
+
+.background-photo2 {
+  background: url(../Landing/andrey-zvyagintsev-HiDFZMT8Z5s-unsplash.jpg)
+    no-repeat center center fixed;
+  background-size: cover;
+}
+
+.background-photo3 {
+  background: url(../Landing/david-lezcano-NfZiOJzZgcg-unsplash.jpg) no-repeat
+    center center fixed;
+  background-size: cover;
+}
+
+.background-photo4 {
+  background: url(../Landing/clark-street-mercantile-P3pI6xzovu0-unsplash.jpg)
+    no-repeat center center fixed;
+  background-size: cover;
+}

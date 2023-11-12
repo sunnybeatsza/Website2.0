@@ -1,7 +1,6 @@
 import React from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../Login/LoginSlice";
 
@@ -18,7 +17,7 @@ export const Navbar = () => {
   return (
     <div className="nav-bar">
       <div className="nav-left">
-        <h2>The Style Club</h2>
+        <h2>New Wave</h2>
       </div>
       {isLoggedIn ? (
         <div className="nav-right">
@@ -32,6 +31,10 @@ export const Navbar = () => {
 
             <Link to="/About">
               <li>About</li>
+            </Link>
+
+            <Link to="/Landing">
+              <li>Join</li>
             </Link>
           </ul>
           <Link to="/LoginSignup">
@@ -54,6 +57,10 @@ export const Navbar = () => {
 
             <Link to="/About">
               <li>About</li>
+            </Link>
+
+            <Link to="/Landing">
+              <li>Join</li>
             </Link>
           </ul>
           <Link to="/LoginSignup">
