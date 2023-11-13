@@ -15,9 +15,6 @@ export const Product = ({ image, title, description, price, color }) => {
         <p className="card-text">{description}</p>
         <p className="card-text">Color: {color}</p>
         <p className="card-text">Price: ${price}</p>
-        <a href="#" className="btn btn-primary">
-          Go somewhere
-        </a>
       </div>
     </div>
   );

@@ -1,0 +1,21 @@
+.billing-info {
+  border: 2px solid wheat;
+  height: 13rem;
+  width: 20rem;
+  margin: 2rem;
+  border-radius: 10px;
+  color: white;
+}
+
+.cart-container {
+  border: 2px solid burlywood;
+  height: auto;
+  width: 20rem;
+  color: white;
+}
+
+.outer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

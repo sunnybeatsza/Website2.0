@@ -42,3 +42,13 @@
   text-decoration: none;
   color: white;
 }
+
+.cart-counter {
+  margin-left: 0.5rem;
+  border: 1px solid blue;
+  color: white;
+  padding: 0.3rem;
+  border-radius: 20%;
+  background-color: blue;
+  font-weight: 500;
+}

@@ -5,15 +5,16 @@ import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../Login/LoginSlice";
 
 export const Navbar = () => {
-  // Navbar.js
   const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
   const name = useSelector((state) => state.login.userName);
+  const cartItems = useSelector((state) => state.cart.cartItems.length);
 
   const handleLogOut = () => {
     dispatch(logout());
   };
 
   const dispatch = useDispatch();
+
   return (
     <div className="nav-bar">
       <div className="nav-left">
@@ -28,11 +29,9 @@ export const Navbar = () => {
             <Link to="/Shop">
               <li>Shop</li>
             </Link>
-
             <Link to="/About">
               <li>About</li>
             </Link>
-
             <Link to="/Landing">
               <li>Join</li>
             </Link>
@@ -41,7 +40,12 @@ export const Navbar = () => {
             <button onClick={handleLogOut}>Logout</button>
           </Link>
           <Link to="/Cart">
-            <button>Cart</button>
+            <button>
+              Cart
+              {cartItems > 0 && (
+                <span className="cart-counter">{cartItems}</span>
+              )}
+            </button>
           </Link>
           <h3>{name}</h3>
         </div>
@@ -54,11 +58,9 @@ export const Navbar = () => {
             <Link to="/Shop">
               <li>Shop</li>
             </Link>
-
             <Link to="/About">
               <li>About</li>
             </Link>
-
             <Link to="/Landing">
               <li>Join</li>
             </Link>
@@ -67,7 +69,12 @@ export const Navbar = () => {
             <button>Login</button>
           </Link>
           <Link to="/Cart">
-            <button>Cart</button>
+            <button>
+              Cart
+              {cartItems > 0 && (
+                <span className="cart-counter">{cartItems}</span>
+              )}
+            </button>
           </Link>
         </div>
       )}
