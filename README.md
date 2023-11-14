@@ -1,3 +1,18 @@
+# Olympian Opulence - Online Web Store Project
+
+This project represents Olympian Opulence, a sophisticated online web store built using React and React Bootstrap. It leverages the power of Formik for seamless form management, creating an exceptional shopping experience for users.
+
+### Prerequisites
+
+Before running the application, ensure that you have Node.js installed on your machine. You can download it from [https://nodejs.org/](https://nodejs.org/).
+
+### Installation
+
+To set up the project, navigate to the project directory in your terminal and run the following command to install the dependencies:
+
+```bash
+npm install
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +83,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
