@@ -10,10 +10,10 @@ Before running the application, ensure that you have Node.js installed on your m
 
 To set up the project, navigate to the project directory in your terminal and run the following command to install the dependencies:
 
-```bash
+bash
 npm install
 
-# Getting Started with Create React App
+### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -83,4 +83,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+```
+
 ```
