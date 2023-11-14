@@ -2,7 +2,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
 import { Shop } from "./Pages/Shop";
-import { About } from "./Pages/About";
+import About from "./Pages/About";
 import { Home } from "./Pages/Home";
 import Cart from "./Pages/Cart";
 import { LoginSignup } from "./Pages/LoginSignup";

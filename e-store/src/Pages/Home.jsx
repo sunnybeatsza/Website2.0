@@ -1,11 +1,10 @@
 import React from "react";
-import { Navbar } from "../Components/Navbar/Navbar";
+import { Landing } from "./Landing";
 
 export const Home = () => {
   return (
     <div>
-      <Navbar />
-      Home
+      <Landing />
     </div>
   );
 };

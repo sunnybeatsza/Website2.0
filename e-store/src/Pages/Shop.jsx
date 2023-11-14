@@ -36,7 +36,7 @@ export const Shop = () => {
     image: {
       color1: generateRandomImage(),
     },
-    title: `Luxury Product ${index + 1}`,
+    title: `Olympian ${index + 1}`,
     description: "Exquisite luxury item with exceptional craftsmanship.",
     price: Math.floor(Math.random() * 5000) + 1000,
     color: "Assorted Colors",

@@ -18,7 +18,7 @@ export const Navbar = () => {
   return (
     <div className="nav-bar">
       <div className="nav-left">
-        <h2>New Wave</h2>
+        <h2 className="text-light">Olympian Opulence</h2>
       </div>
       {isLoggedIn ? (
         <div className="nav-right">
@@ -31,9 +31,6 @@ export const Navbar = () => {
             </Link>
             <Link to="/About">
               <li>About</li>
-            </Link>
-            <Link to="/Landing">
-              <li>Join</li>
             </Link>
           </ul>
           <Link to="/LoginSignup">
@@ -60,9 +57,6 @@ export const Navbar = () => {
             </Link>
             <Link to="/About">
               <li>About</li>
-            </Link>
-            <Link to="/Landing">
-              <li>Join</li>
             </Link>
           </ul>
           <Link to="/LoginSignup">
