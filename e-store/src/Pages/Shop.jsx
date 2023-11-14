@@ -1,3 +1,4 @@
+// Importing React, Navbar component, Product component, styles, and Redux hook
 import React from "react";
 import { Navbar } from "../Components/Navbar/Navbar";
 import { Product } from "./Product";
@@ -5,6 +6,7 @@ import "../Components/Products/Shop.css";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../Components/Cart/CartSlice";
 
+// Function to generate a random image URL from a predefined list
 const generateRandomImage = () => {
   // Replace these placeholder URLs with actual image URLs
   const imageUrls = [
@@ -17,17 +19,22 @@ const generateRandomImage = () => {
     // Add more image URLs as needed
   ];
 
+  // Generating a random index to select a random image URL
   const randomIndex = Math.floor(Math.random() * imageUrls.length);
   return imageUrls[randomIndex];
 };
 
+// Shop component definition
 export const Shop = () => {
+  // Initializing Redux dispatch
   const dispatch = useDispatch();
 
+  // Function to handle adding a product to the cart
   const handleAddToCart = (product) => {
-    // Dispatch the addToCart action with the selected product
+    // Dispatching the addToCart action with the selected product
     dispatch(addToCart(product));
-    alert("Item added!, Click the cart on the top right to see your items");
+    // Alerting the user that the item has been added to the cart
+    alert("Item added! Click the cart on the top right to see your items");
   };
 
   // Array of randomly generated product objects
@@ -42,14 +49,19 @@ export const Shop = () => {
     color: "Assorted Colors",
   }));
 
+  // Rendering the Shop component
   return (
     <div>
+      {/* Navbar component */}
       <div>
         <Navbar />
       </div>
+      {/* Container for displaying products and Add to Cart buttons */}
       <div className="d-flex justify-content-center m-4 extra-flex">
+        {/* Mapping through the products array to display each product */}
         {products.map((product) => (
           <div className="m-4" key={product.id}>
+            {/* Product component with details */}
             <Product
               image={product.image.color1}
               title={product.title}
@@ -57,6 +69,7 @@ export const Shop = () => {
               price={product.price}
               color={product.color}
             />
+            {/* Button to add the product to the cart */}
             <button
               onClick={() => handleAddToCart(product)}
               className="btn btn-primary"
